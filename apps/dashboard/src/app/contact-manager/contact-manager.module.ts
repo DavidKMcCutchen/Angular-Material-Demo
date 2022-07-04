@@ -7,16 +7,25 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MaterialModule } from '@styling-app/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Routes, RouterModule } from '@angular/router';
-
-
-
+import { UserFacade } from '@styling-app/core-state';
+import { StylingService } from '@styling-app/core-data';
 
 const routes: Routes = [
-  {path: '', component: ContactManagerAppComponent,
-children: [{
-  path: '', component: MainContentComponent
-}]},
-  {path: '**', redirectTo: ''},
+  {
+    path: '',
+    component: ContactManagerAppComponent,
+    children: [
+      {
+        path: ':id',
+        component: MainContentComponent,
+      },
+      {
+        path: '',
+        component: MainContentComponent,
+      },
+    ],
+  },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
@@ -24,8 +33,13 @@ children: [{
     ContactManagerAppComponent,
     ToolbarComponent,
     MainContentComponent,
-    SidenavComponent
+    SidenavComponent,
   ],
-  imports: [CommonModule, MaterialModule, FlexLayoutModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    FlexLayoutModule,
+    RouterModule.forChild(routes),
+  ],
 })
 export class ContactManagerModule {}
