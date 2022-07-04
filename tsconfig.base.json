@@ -7,6 +7,8 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "noImplicitAny": false,
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
@@ -15,7 +17,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@styling-app/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@styling-app/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@styling-app/core-data": ["libs/core-data/src/index.ts"],
+      "@styling-app/core-state": ["libs/core-state/src/index.ts"],
+      "@styling-app/environment": ["libs/environment/src/index.ts"],
+      "@styling-app/material": ["libs/material/src/index.ts"],
+      "@styling-app/pipes": ["libs/pipes/src/index.ts"],
+      "@styling-app/theme": ["libs/theme/src/index.ts"],
+      "@styling-app/ui-login": ["libs/ui-login/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
